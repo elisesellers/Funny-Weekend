@@ -1,0 +1,8 @@
+# Netbeans Project files
+########################
+*/build
+*/dist
+*/nbproject/private
+.Trashes
+ehthumbs.db
+Thumbs.db
