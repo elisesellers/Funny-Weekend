@@ -5,6 +5,7 @@
  */
 package byui.CIT260.funnyWeekend.model;
 
+import static funnyweekend.FunnyWeekend.main;
 import java.io.Serializable;
 
 /**
