@@ -30,6 +30,43 @@ public class Location {
     public void setScore(double score) {
         this.score = score;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.coordinates) ^ (Double.doubleToLongBits(this.coordinates) >>> 32));
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.score) ^ (Double.doubleToLongBits(this.score) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" + "coordinates=" + coordinates + ", score=" + score + '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Location other = (Location) obj;
+        if (Double.doubleToLongBits(this.coordinates) != Double.doubleToLongBits(other.coordinates)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.score) != Double.doubleToLongBits(other.score)) {
+            return false;
+        }
+        return true;
+    }
+
+    public Location() {
+    }
     
     
 }

@@ -5,6 +5,8 @@
  */
 package byui.CIT260.funnyWeekend.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author Lony
@@ -19,6 +21,39 @@ public class Hint {
 
     public void setGameWord(String gameWord) {
         this.gameWord = gameWord;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 13 * hash + Objects.hashCode(this.gameWord);
+        return hash;
+    }
+
+    @Override
+    public String toString() {
+        return "Hint{" + "gameWord=" + gameWord + '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Hint other = (Hint) obj;
+        if (!Objects.equals(this.gameWord, other.gameWord)) {
+            return false;
+        }
+        return true;
+    }
+
+    public Hint() {
     }
     
     

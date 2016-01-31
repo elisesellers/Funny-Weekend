@@ -6,6 +6,7 @@
 package byui.CIT260.funnyWeekend.model;
 
 import static java.nio.file.Files.move;
+import java.util.Objects;
 
 /**
  *
@@ -31,5 +32,44 @@ public class Player {
     public void setBestScore(double bestScore) {
         this.bestScore = bestScore;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.name);
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.bestScore) ^ (Double.doubleToLongBits(this.bestScore) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" + "name=" + name + ", bestScore=" + bestScore + '}';
+    }
+    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Player other = (Player) obj;
+        if (Double.doubleToLongBits(this.bestScore) != Double.doubleToLongBits(other.bestScore)) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        return true;
+    }
+
+    public Player() {
+    }
+    
     
 }
