@@ -5,6 +5,8 @@
  */
 package byui.CIT260.funnyWeekend.model;
 
+import static java.nio.file.Files.move;
+
 /**
  *
  * @author Ellie
@@ -29,6 +31,5 @@ public class Player {
     public void setBestScore(double bestScore) {
         this.bestScore = bestScore;
     }
-    
     
 }
