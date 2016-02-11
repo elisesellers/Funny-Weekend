@@ -7,7 +7,7 @@ package byui.CIT260.funnyWeekend.control;
 
 /**
  *
- * @author Lony
+ * @author Ellie
  */
 public class CompareWordsControl {
     
