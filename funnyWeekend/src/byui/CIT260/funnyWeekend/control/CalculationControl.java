@@ -10,14 +10,14 @@ package byui.CIT260.funnyWeekend.control;
  * @author Ellie
  */
 public class CalculationControl {
-    /**This calculates an average, a total, and converts a temperature in F to C**/
+    /**This calculates an average, a total, and converts a temperature in F t*/
     public static double convertTemp(double tempF){
         if (tempF<-50)
             return -100;
         if (tempF>150)
             return -200;
-        double tempC = 0;
-        tempC= ((tempF-32)*5)/9;
+        double tempC;
+        tempC = ((tempF-32)*5)/9;
         
         return tempC;
     }
