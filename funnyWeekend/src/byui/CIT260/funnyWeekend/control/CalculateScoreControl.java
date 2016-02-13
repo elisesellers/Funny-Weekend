@@ -7,8 +7,14 @@ package byui.CIT260.funnyWeekend.control;
 
 /**
  *
- * @author Ellie
+ * @author Yura
  */
 public class CalculateScoreControl {
-    
+    /**This sums up the obtained score to the total score*/
+    public static int calculateScore(int totalScore, int currentScore){
+        
+        totalScore += currentScore;
+        
+        return totalScore;
+    }
 }
