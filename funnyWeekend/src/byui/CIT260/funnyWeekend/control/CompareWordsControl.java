@@ -7,8 +7,20 @@ package byui.CIT260.funnyWeekend.control;
 
 /**
  *
- * @author Ellie
+ * @author Yura
  */
 public class CompareWordsControl {
+    
+    /**This compares the passed word with the game word and returns true 
+       if the words are same and false if they are not*/
+    public static boolean compareWords(String gameWord, String playerWord){
+        
+        boolean match = false;
+
+        if (gameWord.equals(playerWord))
+            match = true;
+        
+        return match;
+    }
     
 }
