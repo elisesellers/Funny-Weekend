@@ -5,7 +5,10 @@
  */
 package byui.CIT260.funnyWeekend.view;
 
+import byui.CIT260.funnyWeekend.control.GameControl;
+import byui.CIT260.funnyWeekend.model.Player;
 import java.util.Scanner;
+import static sun.audio.AudioPlayer.player;
 
 /**
  *
@@ -87,8 +90,37 @@ public class StartProgramView {
     }
 
     private boolean doAction(String playersName) {
-        System.out.println("\n*** doAction() call ***");
+        if (playersName.length()<2){
+            System.out.println("\nInvalid players name; "
+            + "The name must be greater than one character in length.");
+            return false;
+        }
+        
+        //call createPlayer() control function
+        Player player = GameControl.createPlayer(playersName);
+        
+        if (player == null){
+            System.out.println("\nError creating the player");
+            return false;
+        }
+        
+        //display next vie
+        this.displayNextView();
+        
         return true;
+    }
+
+    private void displayNextView() {
+        System.out.println("\n================================="
+                           +"\n Welcome to the game " + player.getName()
+                           +"\n We hope you have a lot of fun!"
+                           +"\n================================="
+                            );
+        //create MainMenuView object
+        MainMenuView mainMenuView = new MainMenuView();
+        
+        //display the main menu view
+        mainMenuView.displayMainMenuView();
     }
     
 }
