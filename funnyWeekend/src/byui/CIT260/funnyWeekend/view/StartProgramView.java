@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.CIT260.funnyWeekend.view;
 
 import byui.CIT260.funnyWeekend.control.GameControl;
 import byui.CIT260.funnyWeekend.model.Player;
 import java.util.Scanner;
-import static sun.audio.AudioPlayer.player;
 
 /**
  *
@@ -105,12 +99,12 @@ public class StartProgramView {
         }
         
         //display next vie
-        this.displayNextView();
+        this.displayNextView(player);
         
         return true;
     }
 
-    private void displayNextView() {
+    private void displayNextView(Player player) {
         System.out.println("\n================================="
                            +"\n Welcome to the game " + player.getName()
                            +"\n We hope you have a lot of fun!"
