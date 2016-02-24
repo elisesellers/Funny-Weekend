@@ -111,7 +111,9 @@ public class MainMenuView {
     }
 
     private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+        //System.out.println("*** startExistingGame function called ***");
+        View33 sundayMath = new View33();
+        sundayMath.displayView33();
     }
 
     private void displayHelpMenu() {
