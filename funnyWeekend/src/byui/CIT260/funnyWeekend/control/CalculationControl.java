@@ -22,8 +22,8 @@ public class CalculationControl {
         return tempC;
     }
     
-    public static double calculateAverage
-        (double list [], int length, int i){
+    public static int calculateAverage
+        (int list [], int length, int i){
         if (length<=0)
             return -1;
         for (i=0; i<length; i++){
@@ -32,8 +32,8 @@ public class CalculationControl {
             if (list[i]>100)
                 return -3;
         }
-        double average;
-        double total = 0;
+        int average;
+        int total = 0;
         for (i=0; i<length; i++)
             total+=list[i];
         average= total/length;
