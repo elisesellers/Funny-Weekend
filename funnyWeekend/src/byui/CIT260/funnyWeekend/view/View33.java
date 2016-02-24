@@ -42,11 +42,14 @@ public class View33 {
             playerTemp = playerTemp.trim(); //trim off leading and trailing blanks
             tempC = Integer.parseInt(playerTemp); // convert to int
         
-            rightAnswer = this.compareTemperature(tempC);
+            rightAnswer = this.doAction(tempC);
         }while (!rightAnswer);
     } 
+    
+    
+    
 
-    private boolean compareTemperature(int playerT) {
+    private boolean doAction(int playerT) {
         // keep comparing until getting the right answer
         boolean rightAnswer = false;
         // get the correct converted temperature and compare with the user input
