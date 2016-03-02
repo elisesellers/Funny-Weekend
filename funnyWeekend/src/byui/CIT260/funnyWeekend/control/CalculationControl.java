@@ -22,8 +22,7 @@ public class CalculationControl {
         return tempC;
     }
     
-    public static int calculateAverage
-        (){
+    public static int calculateAverage(){
             int list []={88, 93, 95, 98, 83, 98, 95};
             int length =7;
         if (length<=0)

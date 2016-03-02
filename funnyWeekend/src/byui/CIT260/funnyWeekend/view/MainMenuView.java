@@ -8,15 +8,14 @@ import java.util.Scanner;
  *
  * @author Yura
  */
-public class MainMenuView {
+public class MainMenuView extends View{
     
-    private String menu;
     private String helpMenu;
     private String promptMessage = "\nPlease enter the menu option: ";
     
     public MainMenuView(){
         
-        this.menu = "\n"
+        super("\n"
                 + "\n------------------------------------"
                 + "\n   Main Menu"
                 + "\n------------------------------------"
@@ -25,7 +24,7 @@ public class MainMenuView {
                 + "\nH -- Get help on how to play the game"
                 + "\nS -- Save the game"
                 + "\nQ -- Quit the game"
-                + "\n------------------------------------";
+                + "\n------------------------------------");
         
         this.helpMenu = "\n"
                 + "\n------------------------------------"
@@ -38,46 +37,8 @@ public class MainMenuView {
                 + "\n------------------------------------";
     }
     
-    // displays the start progrm view
-    void displayMainMenuView() {
-        
-        boolean done = false; // set flag to not done
-        
-        System.out.println(menu);
-        do{
-            // prompt for and get the player's name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // quit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-            
-        } while(!done);
-    } 
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);//get inflile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; // initalize to not valid
-        
-        while (!valid) {
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine(); //get next line typed on keyboard
-            value = value.trim(); //trim off leading and trailing blanks
-            
-            if (value.length()<1){
-                System.out.println("\nInvalid value: vaue cannot be blank");
-                continue;
-            }
-            break; //end the loop
-        }
-        
-        return value; //return the value entered
-    }
-
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase(); 
         
@@ -111,9 +72,8 @@ public class MainMenuView {
     }
 
     private void startExistingGame() {
-        //System.out.println("*** startExistingGame function called ***");
-        View13 fridayMath = new View13();
-        fridayMath.displayView13();
+        System.out.println("*** startExistingGame function called ***");
+
     }
 
     private void displayHelpMenu() {

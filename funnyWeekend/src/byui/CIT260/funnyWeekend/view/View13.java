@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author Ellie
  */
-public class View13 {
+public class View13 extends View{
     private String view13;
     private String prompt;
     private CalculationControl average = new CalculationControl();
@@ -34,27 +34,9 @@ public class View13 {
 
     // displays the start progrm view
 
-    void displayView13() {
-
-        boolean rightAnswer = false;
-        int average;
-        System.out.println(view13);        
-
-        do{
-            System.out.println(prompt);
-            // get the player's choice
-            Scanner keyboard = new Scanner(System.in); //get inflile for keyboard
-            String playerAverage = keyboard.nextLine();
-            playerAverage = playerAverage.trim(); //trim off leading and trailing blanks
-            average = Integer.parseInt(playerAverage); // convert to int
-
-            rightAnswer = this.doAction(average);
-
-        }while (!rightAnswer);
-
-    } 
-
-    private boolean doAction(int playerAverage) {
+    @Override
+    public boolean doAction(String playerPass) {
+        int playerAverage=Integer.parseInt(playerPass);
 
         // keep comparing until getting the right answer
 

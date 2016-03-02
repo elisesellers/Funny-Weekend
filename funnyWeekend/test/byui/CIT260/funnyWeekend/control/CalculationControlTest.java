@@ -25,7 +25,7 @@ public class CalculationControlTest {
         System.out.println("convertTemp");
         double tempF = -51.0;
         double expResult = -100;
-        double result = CalculationControl.convertTemp(tempF);
+        double result = CalculationControl.convertTemp((int) tempF);
         assertEquals(expResult, result, 0.01);
         // TODO review the generated test code and remove the default call to fail.
 
@@ -37,11 +37,12 @@ public class CalculationControlTest {
     @Test
     public void testCalculateAverage() {
         System.out.println("calculateAverage");
-        double[] list ={88, 93, 95, 98, 83, 98, 95};
+        int[] list ={88, 93, 95, 98, 83, 98, 95};
         int length = 7;
-        double expResult = 92.86;
+
+        int expResult = 93;
         int i = 0;
-        double result = CalculationControl.calculateAverage(list, length, i);
+        int result = CalculationControl.calculateAverage();
         assertEquals(expResult, result, 0.01);
         // TODO review the generated test code and remove the default call to fail.
 
