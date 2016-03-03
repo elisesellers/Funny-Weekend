@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class View33 {
 
     private String view33;
-    private String prompt;
+    private String prompt = "\nPlease enter the temperature in Celsius: ";
     private CalculationControl converter = new CalculationControl(); 
     
     // constructor
@@ -23,8 +23,7 @@ public class View33 {
                 + "\nShe wants to tell them the Rexburrg temperature, but she needs it in Celsius."
                 + "\nIt was 28 degrees of Fahrenheit in Rexburg this morning."
                 + "\nThe grandmar wants you to convert the temperature into Celsius."
-                + "\n------------------------------------"
-                + "\nPlease enter the temperature in Celsius: ";
+                + "\n------------------------------------";
     }
     
     // displays the start progrm view
