@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  * @author Yura
  */
-public class StartProgramView {
+public class StartProgramView extends View{
     
     private String promptMessage;
 
@@ -45,45 +45,9 @@ public class StartProgramView {
       + "\n*******************************************"  
         );
     }
-
-    public void displayStartProgramView() {
-        
-        boolean done = false; // set flag to not done
-        do{
-            //prompt for and get players name
-            String playersName = this.getPlayersName();
-            if (playersName.toUpperCase().equals("Q"))//user wants to quit
-                return; //exit the game
-            
-            //do the requested action and isplaty the next view
-            done = this.doAction(playersName);
-            
-        }while (!done);
-    }
-
-    private String getPlayersName() {
-        Scanner keyboard = new Scanner(System.in);//get inflile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; // initalize to not valid
-        
-        while (!valid) {
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine(); //get next line typed on keyboard
-            value = value.trim(); //trim off leading and trailing blanks
-            
-            if (value.length()<1){
-                System.out.println("\nInvalid value: vaue cannot be blank");
-                continue;
-            }
-            
-            break; //end the loop
-        }
-        
-        return value; //return the value entered
-    }
-
-    private boolean doAction(String playersName) {
+    
+    @Override
+    public boolean doAction(String playersName) {
         if (playersName.length()<2){
             System.out.println("\nInvalid players name; "
             + "The name must be greater than one character in length.");
@@ -114,7 +78,7 @@ public class StartProgramView {
         MainMenuView mainMenuView = new MainMenuView();
         
         //display the main menu view
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
     
 }

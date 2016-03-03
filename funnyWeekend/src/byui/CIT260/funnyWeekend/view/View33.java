@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author Yura
  */
-public class View33 {
+public class View33 extends View{
 
     private String view33;
     private String prompt = "\nPlease enter the temperature in Celsius: ";
@@ -26,29 +26,12 @@ public class View33 {
                 + "\n------------------------------------";
     }
     
-    // displays the start progrm view
-    void displayView33() {
-        
-        boolean rightAnswer = false;
-        int tempC;
-        System.out.println(view33);
-        
-        do{
-            System.out.println(prompt);
-            // get the player's choice
-            Scanner keyboard = new Scanner(System.in); //get inflile for keyboard
-            String playerTemp = keyboard.nextLine();
-            playerTemp = playerTemp.trim(); //trim off leading and trailing blanks
-            tempC = Integer.parseInt(playerTemp); // convert to int
-        
-            rightAnswer = this.doAction(tempC);
-        }while (!rightAnswer);
-    } 
     
     
     
-
-    private boolean doAction(int playerT) {
+    @Override
+    public boolean doAction(String playerPass) {
+        int playerT=Integer.parseInt(playerPass);
         // keep comparing until getting the right answer
         boolean rightAnswer = false;
         // get the correct converted temperature and compare with the user input
@@ -63,4 +46,6 @@ public class View33 {
         }
         return rightAnswer;
     }
+
+   
 }

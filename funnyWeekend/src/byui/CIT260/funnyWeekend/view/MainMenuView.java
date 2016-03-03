@@ -8,15 +8,14 @@ import java.util.Scanner;
  *
  * @author Yura
  */
-public class MainMenuView {
+public class MainMenuView extends View{
     
-    private String menu;
-    private String helpMenu;
+    
     private String promptMessage = "\nPlease enter the menu option: ";
     
     public MainMenuView(){
         
-        this.menu = "\n"
+        super("\n"
                 + "\n------------------------------------"
                 + "\n   Main Menu"
                 + "\n------------------------------------"
@@ -25,59 +24,12 @@ public class MainMenuView {
                 + "\nH -- Get help on how to play the game"
                 + "\nS -- Save the game"
                 + "\nQ -- Quit the game"
-                + "\n------------------------------------";
+                + "\n------------------------------------");
         
-        this.helpMenu = "\n"
-                + "\n------------------------------------"
-                + "\n   Help Menu"
-                + "\n------------------------------------"
-                + "\nD -- Discribe the word"
-                + "\nF -- Show the first letter of the word"
-                + "\nW -- Call the wizard to show the formular for calculation"
-                + "\nQ -- Quit the game"
-                + "\n------------------------------------";
     }
     
-    // displays the start progrm view
-    void displayMainMenuView() {
-        
-        boolean done = false; // set flag to not done
-        
-        System.out.println(menu);
-        do{
-            // prompt for and get the player's name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // quit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-            
-        } while(!done);
-    } 
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);//get inflile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; // initalize to not valid
-        
-        while (!valid) {
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine(); //get next line typed on keyboard
-            value = value.trim(); //trim off leading and trailing blanks
-            
-            if (value.length()<1){
-                System.out.println("\nInvalid value: vaue cannot be blank");
-                continue;
-            }
-            break; //end the loop
-        }
-        
-        return value; //return the value entered
-    }
-
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase(); 
         
@@ -107,49 +59,18 @@ public class MainMenuView {
         
         // display game menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
     }
 
     private void startExistingGame() {
-        //System.out.println("*** startExistingGame function called ***");
-        View33 sundayMath = new View33();
-        sundayMath.displayView33();
+        System.out.println("*** startExistingGame function called ***");
     }
 
-    private void displayHelpMenu() {
-        
-        boolean done = false; // set flag to not done
-        
-        System.out.println(helpMenu);
-        do{
-            // prompt for and get the player's name
-            String helpMenuOption = this.getHelpMenuOption();
-            if (helpMenuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // quit the game
-            
-            // do the requested action and display the next view
-            done = this.doHelp(helpMenuOption);
-            
-        } while(!done);
+    private void displayHelpMenu(){
+        System.out.println("*** displayHelpMenu function called ***");
     }
 
     private void saveGame() {
         System.out.println("*** saveGame stub function called ***");
-    }
-
-    private String getHelpMenuOption() {
-        
-        String returnValue = "";
-        
-        System.out.println("*** getHelpMenu stub function called ***");
-        
-        return returnValue;
-    }
-
-    private boolean doHelp(String helpMenuOption) {
-        System.out.println("*** doHelp stub function called ***");
-        
-        return true;
-    }
-    
+    }    
 }
