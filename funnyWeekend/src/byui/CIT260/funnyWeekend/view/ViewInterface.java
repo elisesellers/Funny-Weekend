@@ -12,6 +12,5 @@ package byui.CIT260.funnyWeekend.view;
 public interface ViewInterface {
     public void display();
     public String getInput();
-    public boolean doAction(String value);
-    
+    public boolean doAction(String value);    
 }

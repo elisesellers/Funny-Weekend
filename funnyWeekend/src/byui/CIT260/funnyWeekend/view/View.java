@@ -12,11 +12,9 @@ import java.util.Scanner;
  * @author Lony
  */
 public abstract class View implements ViewInterface{
-    protected String displayMessage;
+    protected String displayMessage = "Please enter your name: ";
     
-    public View(){
-        
-    }
+    public View(){    }
     
     public View(String message){
         this.displayMessage=message;

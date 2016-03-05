@@ -15,10 +15,10 @@ public class View11 extends View{
 
         this.view13 = "\n"
                 + "\n---------------------------------"
-                + "\n Friday Math "
+                + "\n Friday Morning"
                 + "\n---------------------------------"
-                + "\nThis is Friday morning and you are at school, Marina."
-                + "\nI want you to write down 10 names of things and 5 names of people "
+                + "\nThis is Friday morning and you are at school."
+                + "\nI want you to write down 5 names of things and 5 names of people "
                 + "\nyou meet every school day (one word for one prompt). "
                 + "\nAll words start with low case letter.  There must be no typos."
                 + "\n---------------------------------";

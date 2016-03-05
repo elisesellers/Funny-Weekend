@@ -9,12 +9,11 @@ public class GameMenuView extends View{
     public GameMenuView(){
         super("\n"
                 + "\n------------------------------------"
-                + "\n   Help Menu"
+                + "\n   Locations Menu"
                 + "\n------------------------------------"
-                + "\nD -- Discribe the word"
-                + "\nF -- Show the first letter of the word"
-                + "\nW -- Call the wizard to show the formula for calculation"
-                + "\nM -- Return to Main Menu"
+                + "\n11 -- Friday Morning"
+                + "\n13 -- Friday Math"
+                + "\n33 -- Sunday Math"
                 + "\nQ -- Quit the game"
                 + "\n------------------------------------");
     }
@@ -24,17 +23,14 @@ public class GameMenuView extends View{
         value = value.toUpperCase(); 
         
         switch (value) {
-            case "D":  // create and start a new game
-                this.describeWord();
+            case "11":
+                this.doFridayMorning();
                 break;
-            case "F":  // get and start an existing game
-                this.firstLetter();
+            case "13":
+                this.doFridayMath();
                 break;
-            case "W":  // display the help menu
-                this.callWizzard();
-                break;
-            case "M":  // display the help menu
-                this.mainMenu();
+            case "33":
+                this.doSundayMath();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try agin");
@@ -42,20 +38,20 @@ public class GameMenuView extends View{
         }
         return false;
     }
-
-    private void describeWord() {
-        System.out.println("*** describeWord function called ***");
+    
+    private void doFridayMorning() {
+        View11 view11 = new View11();
+        String playerWord = this.getInput();
+        view11.doAction(playerWord);
+    }
+    
+    private void doFridayMath() {
+        View13 view13 = new View13();
+        String playerAverage = this.getInput();
+        view13.doAction(playerAverage);
     }
 
-    private void firstLetter() {
-        System.out.println("*** firstLetter function called ***");
-    }
-
-    private void callWizzard() {
-        System.out.println("*** callWizzard function called ***");
-    }
-
-    private void mainMenu() {
+    private void doSundayMath() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

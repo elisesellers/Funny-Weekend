@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.CIT260.funnyWeekend.view;
 
 import byui.CIT260.funnyWeekend.control.CalculationControl;
@@ -40,30 +35,22 @@ public class View13 extends View{
 
         // keep comparing until getting the right answer
 
-        boolean rightAnswer = false;
-
-        // get the correct converted temperature and compare with the user input
-
-        if (average.calculateAverage() == playerAverage){
-
-            System.out.println("\nThis is the right average!");
-            rightAnswer = true;
-
-        }
-
-        else{
-
-            System.out.println("\nThis is not the right average!");
-
-            System.out.println("\nHere is the formula to find the average:"
+        boolean rightAnswer = true;
+        do{
+            // get the correct average and compare with the user input
+            if (average.calculateAverage() == playerAverage){
+                System.out.println("\nThis is the right average!");
+            }
+            else{
+                System.out.println("\nThis is not the right average!");
+                System.out.println("\nHere is the formula to find the average:"
                     + "\n add all of the numbers together and divide by how many numbers you have."
                     + "(a+a+a+a)/4");
-
-            System.out.println("\nTry again and please: ");
-
-        }
-
+                System.out.println("\nTry again and please: ");
+                rightAnswer = false;
+            }
+        }while(rightAnswer == false); 
+        
         return rightAnswer;
-
     }
 }

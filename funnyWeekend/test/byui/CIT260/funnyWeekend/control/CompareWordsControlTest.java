@@ -30,7 +30,7 @@ public class CompareWordsControlTest {
         String gameWord = "teacher";
         String playerWord = "teacher";
         boolean expResult = true;
-        boolean result = CompareWordsControl.compareWords(gameWord, playerWord);
+        boolean result = CompareWordsControl.compareWords();
         assertEquals(expResult, result);
         
         /**
@@ -39,7 +39,7 @@ public class CompareWordsControlTest {
         gameWord = "teacher";
         playerWord = "pupil";
         expResult = false;
-        result = CompareWordsControl.compareWords(gameWord, playerWord);
+        result = CompareWordsControl.compareWords();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         

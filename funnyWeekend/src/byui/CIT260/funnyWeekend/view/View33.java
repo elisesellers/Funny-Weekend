@@ -25,10 +25,7 @@ public class View33 extends View{
                 + "\nThe grandmar wants you to convert the temperature into Celsius."
                 + "\n------------------------------------";
     }
-    
-    
-    
-    
+     
     @Override
     public boolean doAction(String playerPass) {
         int playerT=Integer.parseInt(playerPass);
