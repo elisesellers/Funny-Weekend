@@ -41,8 +41,7 @@ public class GameMenuView extends View{
     
     private void doFridayMorning() {
         View11 view11 = new View11();
-        String playerWord = this.getInput();
-        view11.doAction(playerWord);
+        view11.doFridayMorning();
     }
     
     private void doFridayMath() {
