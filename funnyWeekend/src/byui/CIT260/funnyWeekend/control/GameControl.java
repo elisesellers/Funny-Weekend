@@ -15,8 +15,7 @@ public class GameControl {
             return null;
         }
         
-        Player player = new Player();
-        player.setName(name);
+        Player player = new Player(name);
         
         FunnyWeekend.setPlayer(player); //save the player
         

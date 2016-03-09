@@ -5,13 +5,8 @@
  */
 package funnyweekend;
 
-import byui.CIT260.funnyWeekend.model.Activity;
-import byui.CIT260.funnyWeekend.model.Describe;
 import byui.CIT260.funnyWeekend.model.Game;
-import byui.CIT260.funnyWeekend.model.MathAssignment;
 import byui.CIT260.funnyWeekend.model.Player;
-import byui.CIT260.funnyWeekend.model.Wizard;
-import byui.CIT260.funnyWeekend.model.Writing;
 import byui.CIT260.funnyWeekend.view.StartProgramView;
 
 /**

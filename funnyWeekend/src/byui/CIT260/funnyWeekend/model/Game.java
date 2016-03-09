@@ -2,6 +2,7 @@ package byui.CIT260.funnyWeekend.model;
 
 import static funnyweekend.FunnyWeekend.main;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -9,14 +10,8 @@ import java.io.Serializable;
  */
 public class Game implements Serializable{
     private double totalScore;
-
-    public double getTotalScore() {
-        return totalScore;
-    }
-
-    public void setTotalScore(double totalScore) {
-        this.totalScore = totalScore;
-    }
+    
+    private ArrayList<Player> players;
 
     @Override
     public int hashCode() {

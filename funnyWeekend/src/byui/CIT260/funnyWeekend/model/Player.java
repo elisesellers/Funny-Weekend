@@ -13,63 +13,27 @@ import java.util.Objects;
  * @author Ellie
  */
 public class Player {
-    private String name;
+    private String playerName;
+    private int playerScore;
 
-    public String getName() {
-        return name;
+    public Player(String playerName) {
+        this.playerName = playerName;
+        this.playerScore = 0;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getPlayerName() {
+        return playerName;
     }
+
+    public int getPlayerScore() {
+        return playerScore;
+    }
+
+    public void setPlayerScore(int playerScore) {
+        this.playerScore = playerScore;
+    }
+
     
-    private double bestScore;
-
-    public double getBestScore() {
-        return bestScore;
-    }
-
-    public void setBestScore(double bestScore) {
-        this.bestScore = bestScore;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.bestScore) ^ (Double.doubleToLongBits(this.bestScore) >>> 32));
-        return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "Player{" + "name=" + name + ", bestScore=" + bestScore + '}';
-    }
-    
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Player other = (Player) obj;
-        if (Double.doubleToLongBits(this.bestScore) != Double.doubleToLongBits(other.bestScore)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        return true;
-    }
-
-    public Player() {
-    }
     
     
 }
