@@ -5,11 +5,14 @@
  */
 package byui.CIT260.funnyWeekend.control;
 
+import byui.CIT260.funnyWeekend.model.Game;
+
 /**
  *
  * @author Ellie
  */
 public class CalculationControl {
+    private Game gameNumbers = new Game();
     /**This calculates an average, a total, and converts a temperature in F t*/
     public static int convertTemp(int tempF){
         if (tempF<-50)

@@ -11,7 +11,19 @@ import java.util.ArrayList;
 public class Game implements Serializable{
     private double totalScore;
     
-    private ArrayList<Player> players;
+    // list of players 
+    public ArrayList<Player> players;
+    // array of answers for CalculationControl
+    public int[] numbers = {12, 13, 14};
+    // two dimentional array for ComparreWords
+    public String[][] words = {
+        {"teacher", "book", "pen", "classmate", "desk", "lesson", "grade", "gym", "math", "break"},
+        {},
+        {},
+        {},
+        {},
+        {},
+        };
 
     @Override
     public int hashCode() {
