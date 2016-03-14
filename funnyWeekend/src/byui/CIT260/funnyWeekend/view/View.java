@@ -42,7 +42,7 @@ public abstract class View implements ViewInterface{
         boolean valid = false; // initalize to not valid
         
         while (!valid) {
-            
+            System.out.println("\n" + this.displayMessage);
             value = keyboard.nextLine(); //get next line typed on keyboard
             value = value.trim(); //trim off leading and trailing blanks
             
