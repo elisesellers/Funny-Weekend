@@ -18,11 +18,11 @@ public class Game implements Serializable{
     // two dimentional array for ComparreWords
     public String[][] words = {
         {"teacher", "book", "pen", "classmate", "desk", "lesson", "grade", "gym", "math", "break"},
-        {},
-        {},
-        {},
-        {},
-        {},
+        {"friend", "runners", "scarf", "hat", "trees", "gloves", "boots", "coat", "hill", "snow"},
+        {"bear", "moose", "bird", "buffalo", "rabbit", "mountain lion", "fly", "mouse", "snake", "squirrel"},
+        {"", "", "", "", "", "", "", "", "", ""},
+        {"speaker", "chapel", "sacrament", "bishop", "Jesus", "story", "scriptures", "prayer", "song", "teacher"},
+        {"bowl", "napkin", "spoon", "vegetables", "meat", "drink", "fork", "plate", "family", "potatoes"},
         };
 
     @Override
