@@ -31,12 +31,14 @@ public class View13 extends View{
 
     @Override
     public boolean doAction(String playerPass) {
-        int playerAverage=Integer.parseInt(playerPass);
+        System.out.println(view13);
+        int playerAverage;
 
         // keep comparing until getting the right answer
 
         boolean rightAnswer = true;
         do{
+            playerAverage= Integer.parseInt(getInput());
             // get the correct average and compare with the user input
             if (average.calculateAverage() == playerAverage){
                 System.out.println("\nThis is the right average!");
