@@ -15,7 +15,7 @@ import java.util.Objects;
 public class Describe implements Serializable{
     
     // class variables
-    private String wordDescription;
+    private String wordDescription; 
     
     // constractor, setters, and getters
     public Describe() {

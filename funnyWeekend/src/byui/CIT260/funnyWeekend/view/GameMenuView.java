@@ -41,7 +41,7 @@ public class GameMenuView extends View{
     
     private void doFridayMorning() {
         View11 view11 = new View11();
-        view11.doFridayMorning();
+        view11.display();
     }
     
     private void doFridayMath() {

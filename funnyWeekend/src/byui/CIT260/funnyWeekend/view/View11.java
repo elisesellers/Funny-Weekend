@@ -8,13 +8,14 @@ import byui.CIT260.funnyWeekend.control.CompareWordsControl;
  */
 public class View11 extends View{
 
-    private String view11;
-    private String prompt11 = "Input the word: ";
+    //private String view11;
+    //private String prompt11 = "Input the word: ";
     private CompareWordsControl words = new CompareWordsControl();
     
     public View11() {
 
-        this.view11 = "\n"
+        super();
+        System.out.println("\n"
                 + "\n---------------------------------"
                 + "\n Friday Morning"
                 + "\n---------------------------------"
@@ -23,34 +24,69 @@ public class View11 extends View{
                 + "\nyou meet every school day (one word for one prompt). "
                 + "\nAll words start with low case letter.  There must be no typos."
                 + "\nThe program will keep prompting you until you enter all 10 words correctly."
-                + "\n---------------------------------";
+                + "\n---------------------------------"
+                + "\nInput 'yes' if you want to continue: ");
     }
-    
-    public void doFridayMorning(){
-    
-        System.out.println(this.view11);
-        for (int i = 0; i < 10; i++){
-            boolean match  = false;
-            while (!match){
-                System.out.println(this.prompt11);
-                String playerWord = getInput();
-                if (doAction(playerWord)){
-                    System.out.println("\nWrightt word!!\n");
-                    match = true;
-                }
-                else
-                    System.out.println("\nYour word is wrong. Please try again.\n");
-            }
-        }
-        System.out.println("\nCongratulations!!!  You made it through the Friday Morning!\n");
-    }
-    
+
     @Override
-    public boolean doAction(String playerPass) {
-        
-        words.compareWords();
-        
+    public boolean doAction(String value) {
+        this.displayMessage = "Input the word: ";
+        this.doView11();
         return true;
     }
+    
+    void doView11(){
+        
+        for (int i = 0; i < 10; i++){
+            boolean match = false;
+            String playerGuess;
+            while (!match){
+                playerGuess = this.getInput();
+                if (words.compareWords(playerGuess)){
+                    System.out.println("\nRight guess!\n");
+                    match = true;
+                }
+                else{
+                    System.out.println("\nThe guess is wrong\n");
+                }
+            }
+        }
+    }
+    
+    /*@Override
+    public boolean doAction(String firstGuess) {
+      boolean success = false;
+      String wordToGuess;
+      int noCorrect = 0;
+      
+      do {           
+             wordToGuess = CompareWordsControl.getNextWord();
+             success = guessWord(wordToGuess, firstGuess);
+             if (success) {
+                 noCorrect++;
+             }
+           }
+      } while (noCorrect <= 10);
+      
+      if (!match) {
+          // display error no match found in 
+          return false;
+      }
+        
+        
+        return true;
+    }*/
+    
+    /*private boolean guessWord(String word) {
+        boolean match = false;
+        match = CompareWordsControl.compareWords(word);
+        
+         while (!match)
+            this.displayMessage = this.prompt11;
+            word = this.getInput();
+            match = CompareWordsControl.compareWords(word);
+        }
+        
+    }*/
 }
 
