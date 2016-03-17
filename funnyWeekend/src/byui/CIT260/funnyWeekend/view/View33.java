@@ -1,6 +1,7 @@
 package byui.CIT260.funnyWeekend.view;
 
 import byui.CIT260.funnyWeekend.control.CalculationControl;
+import byui.CIT260.funnyWeekend.exceptions.CalculationControlException;
 import java.util.Scanner;
 
 /**
@@ -28,11 +29,20 @@ public class View33 extends View{
      
     @Override
     public boolean doAction(String playerPass) {
-        int playerT=Integer.parseInt(playerPass);
+        int playerT;
+        try{
+            Integer.parseInt(playerPass);
+        }catch (NumberFormatException nf){
+            System.out.println("\nYou must enter a valid number.");
+        }
+        playerT=Integer.parseInt(playerPass);
         // keep comparing until getting the right answer
         boolean rightAnswer = false;
         // get the correct converted temperature and compare with the user input
-        if (converter.convertTemp(28) == playerT){
+        int tem;
+        try{
+            tem = converter.convertTemp(28);
+            if (tem == playerT){
             System.out.println("\nThis is the right temperature!");
             rightAnswer = true;
         }
@@ -41,6 +51,10 @@ public class View33 extends View{
             System.out.println("\nHere is the convertion formular C = (F - 32) * 5 / 9");
             System.out.println("\nTry again and please: ");
         }
+        }catch(CalculationControlException cce){
+                System.out.println(cce.getMessage());
+        }
+        
         return rightAnswer;
     }
 
