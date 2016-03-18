@@ -2,6 +2,7 @@ package byui.CIT260.funnyWeekend.view;
 
 import byui.CIT260.funnyWeekend.control.CalculationControl;
 import static byui.CIT260.funnyWeekend.control.CalculationControl.calculateAverage;
+import byui.CIT260.funnyWeekend.exceptions.CalculationControlException;
 import java.util.Scanner;
 
 /**
@@ -31,24 +32,39 @@ public class View13 extends View{
 
     @Override
     public boolean doAction(String playerPass) {
-        int playerAverage=Integer.parseInt(playerPass);
+        System.out.println(view13);
+        int playerAverage;
 
         // keep comparing until getting the right answer
 
         boolean rightAnswer = true;
         do{
+            try{
+                Integer.parseInt(getInput());
+            }catch(NumberFormatException nf){
+                System.out.println("\nYou must enter a valid number.");
+            }
+            playerAverage= Integer.parseInt(getInput());
             // get the correct average and compare with the user input
-            if (average.calculateAverage() == playerAverage){
+            int avg;
+            try{
+                avg = average.calculateAverage();
+                if (avg == playerAverage){
                 System.out.println("\nThis is the right average!");
+                }
+                else{
+                    System.out.println("\nThis is not the right average!");
+                    System.out.println("\nHere is the formula to find the average:"
+                        + "\n add all of the numbers together and divide by how many numbers you have."
+                        + "(a+a+a+a)/4");
+                    System.out.println("\nTry again and please: ");
+                    rightAnswer = false;
+                }
+            }catch(CalculationControlException cce){
+                System.out.println(cce.getMessage());
             }
-            else{
-                System.out.println("\nThis is not the right average!");
-                System.out.println("\nHere is the formula to find the average:"
-                    + "\n add all of the numbers together and divide by how many numbers you have."
-                    + "(a+a+a+a)/4");
-                System.out.println("\nTry again and please: ");
-                rightAnswer = false;
-            }
+            
+            
         }while(rightAnswer == false); 
         
         return rightAnswer;
