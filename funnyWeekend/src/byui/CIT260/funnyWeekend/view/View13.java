@@ -63,8 +63,7 @@ public class View13 extends View{
             }catch(CalculationControlException cce){
                 System.out.println(cce.getMessage());
             }
-            
-            
+              
         }while(rightAnswer == false); 
         
         return rightAnswer;

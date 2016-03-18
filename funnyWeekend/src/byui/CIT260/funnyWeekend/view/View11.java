@@ -1,6 +1,9 @@
 package byui.CIT260.funnyWeekend.view;
 
 import byui.CIT260.funnyWeekend.control.CompareWordsControl;
+import byui.CIT260.funnyWeekend.exceptions.CompareWordsControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,12 +43,16 @@ public class View11 extends View{
             String playerGuess;
             while (!match){
                 playerGuess = this.getInput();
-                if (words.compareWords(playerGuess)){
-                    System.out.println("\nRight guess!\n");
-                    match = true;
-                }
-                else{
-                    System.out.println("\nThe guess is wrong\n");
+                try {
+                    if (words.compareWords(playerGuess)){
+                        System.out.println("\nRight guess!\n");
+                        match = true;
+                    }
+                    else{
+                        System.out.println("\nThe guess is wrong\n");
+                    }
+                } catch (CompareWordsControlException cwce) {
+                    System.out.println(cwce.getMessage());
                 }
             }
         }
