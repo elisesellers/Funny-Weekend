@@ -12,17 +12,29 @@ public class Game implements Serializable{
     private double totalScore;
     
     // list of players 
-    public ArrayList<Player> players;
+    private ArrayList<Player> players;
     // array of answers for CalculationControl
-    public int[] numbers = {12, 13, 14};
+    private int[] numbers = {12, 13, 14};
+
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public int[] getNumbers() {
+        return numbers;
+    }
+
+    public String[][] getWords() {
+        return words;
+    }
     // two dimentional array for ComparreWords
-    public String[][] words = {
-        {"teacher", "book", "pen", "classmate", "desk", "lesson", "grade", "gym", "math", "break"}, //FM
-        {"friend", "runners", "scarf", "hat", "trees", "gloves", "boots", "coat", "hill", "snow"},  //FE
-        {"bear", "moose", "bird", "buffalo", "rabbit", "mountain lion", "fly", "mouse", "snake", "squirrel"}, // SM
-        {"", "", "", "", "", "", "", "", "", ""}, //SM
-        {"speaker", "chapel", "sacrament", "bishop", "Jesus", "story", "scriptures", "prayer", "song", "teacher"}, //SuM
-        {"bowl", "napkin", "spoon", "vegetables", "meat", "drink", "fork", "plate", "family", "potatoes"}, //SuE
+    private String[][] words = {
+        {"teacher", "book", "pen", "classmate", "desk", "lesson", "grade", "gym", "math", "break"},
+        {"friend", "runners", "scarf", "hat", "trees", "gloves", "boots", "coat", "hill", "snow"},
+        {"bear", "moose", "bird", "buffalo", "rabbit", "mountain lion", "fly", "mouse", "snake", "squirrel"},
+        {"bed", "lamp", "toy", "window", "picture", "drawers", "desk", "clothes", "blanket", "pillow"},
+        {"speaker", "chapel", "sacrament", "bishop", "Jesus", "story", "scriptures", "prayer", "song", "teacher"},
+        {"bowl", "napkin", "spoon", "vegetables", "meat", "drink", "fork", "plate", "family", "potatoes"},
         };
 
     @Override
@@ -55,7 +67,6 @@ public class Game implements Serializable{
         return true;
     }
     
-
     public Game() {
     }
     

@@ -8,8 +8,6 @@ import byui.CIT260.funnyWeekend.control.CompareWordsControl;
  */
 public class View11 extends View{
 
-    //private String view11;
-    //private String prompt11 = "Input the word: ";
     private CompareWordsControl words = new CompareWordsControl();
     
     public View11() {
@@ -52,41 +50,5 @@ public class View11 extends View{
             }
         }
     }
-    
-    /*@Override
-    public boolean doAction(String firstGuess) {
-      boolean success = false;
-      String wordToGuess;
-      int noCorrect = 0;
-      
-      do {           
-             wordToGuess = CompareWordsControl.getNextWord();
-             success = guessWord(wordToGuess, firstGuess);
-             if (success) {
-                 noCorrect++;
-             }
-           }
-      } while (noCorrect <= 10);
-      
-      if (!match) {
-          // display error no match found in 
-          return false;
-      }
-        
-        
-        return true;
-    }*/
-    
-    /*private boolean guessWord(String word) {
-        boolean match = false;
-        match = CompareWordsControl.compareWords(word);
-        
-         while (!match)
-            this.displayMessage = this.prompt11;
-            word = this.getInput();
-            match = CompareWordsControl.compareWords(word);
-        }
-        
-    }*/
 }
 
