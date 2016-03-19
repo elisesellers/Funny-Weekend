@@ -11,52 +11,32 @@ import java.io.Serializable;
  *
  * @author Yura
  */
-public class Activity implements Serializable{
+public enum Activity implements Serializable{
+    
+    activityFM("View11","Friday Morning Words"),
+    activityFA("View12","Friday Afternoon Words"),
+    activityFE("View13","Friday Evening Math"),
+    activityStM("View21","Saturday Morning Words"),
+    activityStA("View22","Saturday Afternoon Words"),
+    activityStE("View23","Saturday Evening Math"),
+    activitySuM("View31","Sunday Morning Words"),
+    activitySuA("View32","Sunday Afternoon Words"),
+    activitySuE("View33","Sunday Evening Math");
     
     // class variables
-    private int location;
+    private final String activity;
+    private final String description;
 
-    public Activity() {
+    private Activity(String activity, String description) {
+        this.activity = activity;
+        this.description = description;
     }
     
-    public int getLocation() {
-        return location;
+    public String getActivity() {
+        return activity;
     }
 
-    public void setLocation(int location) {
-        this.location = location;
+    public String getDescription() {
+        return description;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + this.location;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Activity other = (Activity) obj;
-        if (this.location != other.location) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Activity{" + "location=" + location + '}';
-    }
-    
-    
-    
 }
