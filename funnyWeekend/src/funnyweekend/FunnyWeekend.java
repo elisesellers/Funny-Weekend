@@ -8,6 +8,12 @@ package funnyweekend;
 import byui.CIT260.funnyWeekend.model.Game;
 import byui.CIT260.funnyWeekend.model.Player;
 import byui.CIT260.funnyWeekend.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,6 +27,35 @@ public class FunnyWeekend {
     
     private static Game currentGame = null;
     private static Player player = null;
+    
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    
+    private static PrintWriter logFile = null;
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        FunnyWeekend.logFile = logFile;
+    }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        FunnyWeekend.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        FunnyWeekend.inFile = inFile;
+    }
 
     public static Game getCurrentGame() {
         return currentGame;
@@ -39,14 +74,39 @@ public class FunnyWeekend {
     }
 
     public static void main(String[] args) {
-        
-       StartProgramView startProgramView = new StartProgramView();
+       
+       
        try{
-            startProgramView.display();
-       }catch (Throwable te){
-           System.out.println(te.getMessage());
-           te.printStackTrace();
+           // open character stream files for end user input and output
+           FunnyWeekend.inFile = new BufferedReader(new InputStreamReader(System.in));
+           FunnyWeekend.outFile = new PrintWriter(System.out, true);
+           
+           // open log file
+           String filePath = "log.txt";
+           FunnyWeekend.logFile = new PrintWriter(filePath);
+           
+           StartProgramView startProgramView = new StartProgramView();
            startProgramView.display();
+            
+           return;
+       }catch (Throwable te){
+           System.out.println("Exception: " + te.toString() +
+                              "\nCouse: " + te.getCause() +
+                               "\nMessage: " + te.getMessage());
+           te.printStackTrace();
+       }
+       finally {
+           try {
+               if (FunnyWeekend.inFile != null)
+                    FunnyWeekend.inFile.close();
+               if (FunnyWeekend.outFile != null)
+                    FunnyWeekend.outFile.close();
+               if (FunnyWeekend.logFile != null)
+                   FunnyWeekend.logFile.close();
+           } catch (IOException ex) {
+               System.out.println("Error closing files");
+               return;
+           }
        }
     }
     

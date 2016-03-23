@@ -5,6 +5,9 @@
  */
 package byui.CIT260.funnyWeekend.view;
 
+import funnyweekend.FunnyWeekend;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -13,6 +16,9 @@ import java.util.Scanner;
  */
 public abstract class View implements ViewInterface{
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = FunnyWeekend.getInFile(); 
+    protected final PrintWriter console = FunnyWeekend.getOutFile();
     
     public View(){    }
     
@@ -37,20 +43,24 @@ public abstract class View implements ViewInterface{
     
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in);//get inflile for keyboard
+        //Scanner keyboard = new Scanner(System.in);//get inflile for keyboard
         String value = null; //value to be returned
         boolean valid = false; // initalize to not valid
         
-        while (!valid) {
-            System.out.println("\n" + this.displayMessage);
-            value = keyboard.nextLine(); //get next line typed on keyboard
-            value = value.trim(); //trim off leading and trailing blanks
+        try{
+            while (!valid) {
+                System.out.println("\n" + this.displayMessage);
+                value = this.keyboard.readLine(); //get next line typed on keyboard
+                value = value.trim(); //trim off leading and trailing blanks
             
-            if (value.length()<1){
-                System.out.println("\n***You must enter a value ***");
-                continue;
+                if (value.length()<1){
+                    System.out.println("\n***You must enter a value ***");
+                    continue;
+                }
+                break; //end the loop
             }
-            break; //end the loop
+        }catch (Exception te){
+            System.out.println("Error reading input: " + te.getMessage());
         }
         
         return value; //return the value entered
