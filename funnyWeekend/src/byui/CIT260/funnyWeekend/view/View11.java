@@ -16,7 +16,7 @@ public class View11 extends View{
     public View11() {
 
         super();
-        System.out.println("\n"
+        this.console.println("\n"
                 + "\n---------------------------------"
                 + "\n Friday Morning"
                 + "\n---------------------------------"
@@ -45,14 +45,14 @@ public class View11 extends View{
                 playerGuess = this.getInput();
                 try {
                     if (words.compareWords(playerGuess)){
-                        System.out.println("\nRight guess!\n");
+                        this.console.println("\nRight guess!\n");
                         match = true;
                     }
                     else{
-                        System.out.println("\nThe guess is wrong\n");
+                        this.console.println("\nThe guess is wrong\n");
                     }
                 } catch (CompareWordsControlException cwce) {
-                    System.out.println(cwce.getMessage());
+                    this.console.println(cwce.getMessage());
                 }
             }
         }

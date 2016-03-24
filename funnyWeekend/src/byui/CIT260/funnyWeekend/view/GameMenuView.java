@@ -33,7 +33,7 @@ public class GameMenuView extends View{
                 this.doSundayMath();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try agin");
+                this.console.println("\n*** Invalid selection *** Try agin");
                 break;
         }
         return false;

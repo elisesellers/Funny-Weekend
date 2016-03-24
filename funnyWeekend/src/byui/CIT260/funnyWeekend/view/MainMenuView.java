@@ -38,7 +38,7 @@ public class MainMenuView extends View{
                 this.startNewGame();
                 break;
             case "G":  // get and start an existing game
-                this.startExistingGame();
+                this.startSavedGame();
                 break;
             case "H":  // display the help menu
                 this.displayHelpMenu();
@@ -47,7 +47,7 @@ public class MainMenuView extends View{
                 this.saveGame();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try agin");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try agin");
                 break;
         }
         return false;
@@ -62,15 +62,39 @@ public class MainMenuView extends View{
         gameMenu.display();
     }
 
-    private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+    private void startSavedGame() {
+        
+        // prompt for and get the name of the file to sabe the game in
+        this.console.println("\n\nEnter the file path for file where the game is saved.");
+        
+        String filePath = this.getInput();
+        
+        try{
+            // start a saved game
+            GameControl.getSavedGame(filePath);
+        }catch (Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
+        // display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void displayHelpMenu(){
-        System.out.println("*** displayHelpMenu function called ***");
+        this.console.println("*** displayHelpMenu function called ***");
     }
 
     private void saveGame() {
-        System.out.println("*** saveGame stub function called ***");
+        // prompt for and get the name of the file to save the game in
+        this.console.println("\n\nEnter the file path for the file where the game is to be saved.");
+        String filePath = this.getInput();
+        
+        try{
+            //save the game to the spesified file
+            GameControl.saveGame(FunnyWeekend.getCurrentGame(), filePath);
+        }catch(Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }    
 }

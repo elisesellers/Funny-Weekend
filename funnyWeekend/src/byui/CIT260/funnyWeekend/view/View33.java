@@ -33,7 +33,7 @@ public class View33 extends View{
         try{
             Integer.parseInt(playerPass);
         }catch (NumberFormatException nf){
-            System.out.println("\nYou must enter a valid number.");
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number.");
         }
         playerT=Integer.parseInt(playerPass);
         // keep comparing until getting the right answer
@@ -43,16 +43,16 @@ public class View33 extends View{
         try{
             tem = converter.convertTemp(28);
             if (tem == playerT){
-            System.out.println("\nThis is the right temperature!");
+            this.console.println("\nThis is the right temperature!");
             rightAnswer = true;
         }
         else{
-            System.out.println("\nThis is not the right temperature!");
-            System.out.println("\nHere is the convertion formular C = (F - 32) * 5 / 9");
-            System.out.println("\nTry again and please: ");
+            this.console.println("\nThis is not the right temperature!");
+            this.console.println("\nHere is the convertion formular C = (F - 32) * 5 / 9");
+            this.console.println("\nTry again and please: ");
         }
         }catch(CalculationControlException cce){
-                System.out.println(cce.getMessage());
+                ErrorView.display(this.getClass().getName(), cce.getMessage());
         }
         
         return rightAnswer;

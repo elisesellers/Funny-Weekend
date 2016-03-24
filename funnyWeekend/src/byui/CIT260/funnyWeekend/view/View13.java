@@ -32,7 +32,7 @@ public class View13 extends View{
 
     @Override
     public boolean doAction(String playerPass) {
-        System.out.println(view13);
+        this.console.println(view13);
         int playerAverage;
 
         // keep comparing until getting the right answer
@@ -42,7 +42,7 @@ public class View13 extends View{
             try{
                 Integer.parseInt(getInput());
             }catch(NumberFormatException nf){
-                System.out.println("\nYou must enter a valid number.");
+                ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number.");
             }
             playerAverage= Integer.parseInt(getInput());
             // get the correct average and compare with the user input
@@ -50,18 +50,18 @@ public class View13 extends View{
             try{
                 avg = average.calculateAverage();
                 if (avg == playerAverage){
-                System.out.println("\nThis is the right average!");
+                this.console.println("\nThis is the right average!");
                 }
                 else{
-                    System.out.println("\nThis is not the right average!");
-                    System.out.println("\nHere is the formula to find the average:"
+                    this.console.println("\nThis is not the right average!");
+                    this.console.println("\nHere is the formula to find the average:"
                         + "\n add all of the numbers together and divide by how many numbers you have."
                         + "(a+a+a+a)/4");
-                    System.out.println("\nTry again and please: ");
+                    this.console.println("\nTry again and please: ");
                     rightAnswer = false;
                 }
             }catch(CalculationControlException cce){
-                System.out.println(cce.getMessage());
+                ErrorView.display(this.getClass().getName(), cce.getMessage());
             }
               
         }while(rightAnswer == false); 
