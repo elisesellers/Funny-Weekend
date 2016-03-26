@@ -1,7 +1,10 @@
 package byui.CIT260.funnyWeekend.view;
 
 import byui.CIT260.funnyWeekend.control.GameControl;
+import byui.CIT260.funnyWeekend.model.Game;
 import funnyweekend.FunnyWeekend;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -24,6 +27,7 @@ public class MainMenuView extends View{
                 + "\nH -- Get help on how to play the game"
                 + "\nS -- Save the game"
                 + "\nQ -- Quit the game"
+                + "\nWA -- Save and print out word answers"
                 + "\n------------------------------------");
         
     }
@@ -45,6 +49,9 @@ public class MainMenuView extends View{
                 break;
             case "S":  // save the current game
                 this.saveGame();
+                break;
+            case "WA": // write the words answers to a file
+                this.writeWordAnswers();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try agin");
@@ -97,4 +104,29 @@ public class MainMenuView extends View{
             ErrorView.display("MainMenuView", ex.getMessage());
         }
     }    
+
+    private void writeWordAnswers() {
+        // prompt for and get the name of the file to write the word answers
+        this.console.println("\n\nEnter the file path for the file where the word answers will be written.");
+        String filePath = this.getInput();
+        
+        try(PrintWriter out = new PrintWriter(filePath)){
+            // print the header
+            out.println("\n            -- Here are the word answers --             \n");
+            /* for ever item in the list
+                 print info about item;
+            */
+            String [][] wordAnswers = FunnyWeekend.getCurrentGame().getWords();
+            for (int i = 0; i < 6; i++){
+                out.println("Writing assignment #," + (i + 1) + ":  ");
+                for (int i1 = 0; i1 < 10; i1++){
+                    out.println(wordAnswers[i][i1] + ", ");
+                }
+                out.println("\n");
+            }
+            
+        }catch(IOException ex){
+            System.out.println("I/O error" + ex.getMessage());
+        }
+    }
 }
