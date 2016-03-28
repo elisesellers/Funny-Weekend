@@ -4,8 +4,13 @@ import byui.CIT260.funnyWeekend.model.Game;
 import byui.CIT260.funnyWeekend.model.Player;
 import byui.CIT260.funnyWeekend.exceptions.GameControlException;
 import funnyweekend.FunnyWeekend;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -54,5 +59,22 @@ public class GameControl {
         }
         // close the output file
         FunnyWeekend.setCurrentGame(game); // save in FunnyWeekend
+    }
+
+    public static void mathAnswers(Game currentGame, String filePath) {
+        String inputLocation = null;
+        String outputLocation = null;
+        try (BufferedReader in =
+                new BufferedReader(new FileReader(inputLocation));
+                BufferedWriter out = 
+                        new BufferedWriter(new FileWriter(outputLocation))
+                ) {
+            String text;
+            while((text = in.readLine()) !=null){
+                out.write(text);
+            }
+        }catch(IOException ex){
+            System.out.println("I/O Error: " + ex.getMessage());
+        }
     }
 }

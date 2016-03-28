@@ -14,7 +14,7 @@ public class Game implements Serializable{
     // list of players 
     private ArrayList<Player> players;
     // array of answers for CalculationControl
-    private int[] numbers = {12, 13, 14};
+    public int[] numbers = {12, 13, 14};
 
     public ArrayList<Player> getPlayers() {
         return players;

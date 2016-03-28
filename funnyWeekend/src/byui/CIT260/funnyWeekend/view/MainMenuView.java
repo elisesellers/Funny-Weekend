@@ -2,6 +2,8 @@ package byui.CIT260.funnyWeekend.view;
 
 import byui.CIT260.funnyWeekend.control.GameControl;
 import funnyweekend.FunnyWeekend;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -24,6 +26,7 @@ public class MainMenuView extends View{
                 + "\nH -- Get help on how to play the game"
                 + "\nS -- Save the game"
                 + "\nQ -- Quit the game"
+                + "\nMA -- Save and print out math answers"
                 + "\n------------------------------------");
         
     }
@@ -45,6 +48,9 @@ public class MainMenuView extends View{
                 break;
             case "S":  // save the current game
                 this.saveGame();
+                break;
+            case "MA":
+                this.mathAnswers();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try agin");
@@ -97,4 +103,28 @@ public class MainMenuView extends View{
             ErrorView.display("MainMenuView", ex.getMessage());
         }
     }    
+
+    private void mathAnswers() {
+        this.console.println("\n\nEnter the file path where the report will be printed.");
+        String filePath = this.getInput();
+        int[] numbers = FunnyWeekend.getCurrentGame().getNumbers(); 
+        
+        try(PrintWriter out = new PrintWriter(filePath)){
+            out.println("\n\n         Inventory Report        ");
+            out.printf("%n%-20s%10s%10s", "Location", "Answer");
+            out.printf("%n%-20s%10s%10s", "---------", "--------");
+            
+            for (int i = 0; i < numbers.length; i++) {
+             
+                out.printf("%n%-20s%7d%13.2f", 
+                        for (int i =0; i<=numbers.length; i++){
+                            
+                        }
+                                             , numbers.getAnswer());
+            }
+            
+        }catch(IOException ex){
+            System.out.println("I/O Error: ", ex.getMessage());
+        }
+    }
 }
