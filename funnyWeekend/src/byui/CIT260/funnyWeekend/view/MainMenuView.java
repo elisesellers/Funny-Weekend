@@ -113,9 +113,10 @@ public class MainMenuView extends View{
         try(PrintWriter out = new PrintWriter(filePath)){
             // print the header
             out.println("\n            -- Here are the word answers --             \n");
-            /* for ever item in the list
+            /* for ever item in the listYu
                  print info about item;
             */
+            System.out.println("FunnyWeekend.getCurrentGame() = " + FunnyWeekend.getCurrentGame());
             String [][] wordAnswers = FunnyWeekend.getCurrentGame().getWords();
             for (int i = 0; i < 6; i++){
                 out.println("Writing assignment #," + (i + 1) + ":  ");

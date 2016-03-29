@@ -29,7 +29,7 @@ public class GameControl {
     }
 
     public static void createNewGame(Player player) {
-        System.out.println("*** createNewGame stub function called ***");
+      Game newGame = new Game();  
     } 
     
     public static void saveGame(Game game, String filepath) throws GameControlException{

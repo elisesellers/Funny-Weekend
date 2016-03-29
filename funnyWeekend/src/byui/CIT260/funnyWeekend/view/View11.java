@@ -37,10 +37,10 @@ public class View11 extends View{
     }
     
     void doView11(){
-        
+        boolean match;
+        String playerGuess;
         for (int i = 0; i < 10; i++){
-            boolean match = false;
-            String playerGuess;
+            match = false;
             while (!match){
                 playerGuess = this.getInput();
                 try {
