@@ -1,7 +1,12 @@
 package byui.CIT260.funnyWeekend.view;
 
 import byui.CIT260.funnyWeekend.control.GameControl;
+import byui.CIT260.funnyWeekend.model.Game;
 import funnyweekend.FunnyWeekend;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -26,6 +31,7 @@ public class MainMenuView extends View{
                 + "\nH -- Get help on how to play the game"
                 + "\nS -- Save the game"
                 + "\nQ -- Quit the game"
+                + "\nWA -- Save and print out word answers"
                 + "\nMA -- Save and print out math answers"
                 + "\n------------------------------------");
         
@@ -48,6 +54,9 @@ public class MainMenuView extends View{
                 break;
             case "S":  // save the current game
                 this.saveGame();
+                break;
+            case "WA": // write the words answers to a file
+                this.writeWordAnswers();
                 break;
             case "MA":
                 this.mathAnswers();
@@ -104,27 +113,50 @@ public class MainMenuView extends View{
         }
     }    
 
-    private void mathAnswers() {
-        this.console.println("\n\nEnter the file path where the report will be printed.");
+    private void writeWordAnswers() {
+        // prompt for and get the name of the file to write the word answers
+        this.console.println("\n\nEnter the file path for the file where the word answers will be written.");
         String filePath = this.getInput();
-        int[] numbers = FunnyWeekend.getCurrentGame().getNumbers(); 
         
         try(PrintWriter out = new PrintWriter(filePath)){
-            out.println("\n\n         Inventory Report        ");
-            out.printf("%n%-20s%10s%10s", "Location", "Answer");
-            out.printf("%n%-20s%10s%10s", "---------", "--------");
-            
-            for (int i = 0; i < numbers.length; i++) {
-             
-                out.printf("%n%-20s%7d%13.2f", 
-                        for (int i =0; i<=numbers.length; i++){
-                            
-                        }
-                                             , numbers.getAnswer());
+            // print the header
+            out.println("\n            -- Here are the word answers --             \n");
+            /* for ever item in the list
+                 print info about item;
+            */
+            String [][] wordAnswers = FunnyWeekend.getCurrentGame().getWords();
+            for (int i = 0; i < 6; i++){
+                out.println("Writing assignment #," + (i + 1) + ":  ");
+                for (int i1 = 0; i1 < 10; i1++){
+                    out.println(wordAnswers[i][i1] + ", ");
+                }
+                out.println("\n");
             }
             
         }catch(IOException ex){
-            System.out.println("I/O Error: ", ex.getMessage());
+            System.out.println("I/O error" + ex.getMessage());
+        }
+    }
+
+   public int mathAnswers(int[] numbers) {
+       
+       this.console.println("\n\nEnter the file path for the file where the word answers will be written.");
+        String filePath = this.getInput();
+        
+        try (PrintWriter out = new PrintWriter(filePath)){
+            
+            out.println("\n\n           Math Answers           ");
+            out.printf("%n%-20s%10s", "Location", "Answer");
+            out.printf("%n%-20s%10s", "--------", "-------");
+            
+            for(int i = 0; i < numbers.length; i++){
+                out.printf("%n%-20d%7d", i + ": ", numbers[i]);
+                        
+                out.println("\n");
+            }
+            
+        }catch(IOException ex){
+            System.out.println("I/O Error: " + ex.getMessage());
         }
     }
 }

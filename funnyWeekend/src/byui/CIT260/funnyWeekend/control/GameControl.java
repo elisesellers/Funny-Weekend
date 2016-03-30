@@ -61,20 +61,5 @@ public class GameControl {
         FunnyWeekend.setCurrentGame(game); // save in FunnyWeekend
     }
 
-    public static void mathAnswers(Game currentGame, String filePath) {
-        String inputLocation = null;
-        String outputLocation = null;
-        try (BufferedReader in =
-                new BufferedReader(new FileReader(inputLocation));
-                BufferedWriter out = 
-                        new BufferedWriter(new FileWriter(outputLocation))
-                ) {
-            String text;
-            while((text = in.readLine()) !=null){
-                out.write(text);
-            }
-        }catch(IOException ex){
-            System.out.println("I/O Error: " + ex.getMessage());
-        }
-    }
+    
 }
