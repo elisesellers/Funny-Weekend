@@ -8,7 +8,7 @@ import byui.CIT260.funnyWeekend.model.Game;
  * @author Yura
  */
 public class CompareWordsControl {
-    boolean match = false;
+    private boolean match;
     private Game game = new Game();
     /**This compares the passed word with the game word and returns true 
        if the words are same and false if they are not*/
@@ -16,7 +16,7 @@ public class CompareWordsControl {
         
         if ("".equals(playerWord))
             throw new CompareWordsControlException("You need to input the word");
-        
+        match = false;
         String[][] words = game.getWords();
         
         for (int i = 0; i < 6; i++)
