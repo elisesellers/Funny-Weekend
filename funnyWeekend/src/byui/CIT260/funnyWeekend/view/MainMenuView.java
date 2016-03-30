@@ -59,7 +59,7 @@ public class MainMenuView extends View{
                 this.writeWordAnswers();
                 break;
             case "MA":
-                this.mathAnswers();
+                this.mathAnswers(FunnyWeekend.getCurrentGame().getNumbers());
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try agin");
@@ -138,7 +138,8 @@ public class MainMenuView extends View{
         }
     }
 
-   public int mathAnswers(int[] numbers) {
+   public void mathAnswers(int[] numbers) {
+       FileWriter outFile = null;
        
        this.console.println("\n\nEnter the file path for the file where the word answers will be written.");
         String filePath = this.getInput();
@@ -157,6 +158,14 @@ public class MainMenuView extends View{
             
         }catch(IOException ex){
             System.out.println("I/O Error: " + ex.getMessage());
+        }finally{
+            if (outFile != null){
+                try{
+                    outFile.close();
+                }catch (IOException ex2){
+                    System.out.println("Error closing file.");
+                }
+            }
         }
     }
 }
