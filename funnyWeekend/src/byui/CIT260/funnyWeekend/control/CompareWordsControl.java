@@ -19,7 +19,7 @@ public class CompareWordsControl {
         match = false;
         String[][] words = game.getWords();
         
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 1; i++)
             for (int j = 0; j < 10; j++){
                 if (words[i][j].equals(playerWord)){
                     match = true;

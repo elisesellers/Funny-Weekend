@@ -20,11 +20,33 @@ public class GameMenuView extends View{
 
     @Override
     public boolean doAction(String value) {
+        int assignmentNumber = -1;
         value = value.toUpperCase(); 
         
         switch (value) {
             case "11":
-                this.doFridayMorning();
+                assignmentNumber = 0;
+                this.doWritingAssignment(assignmentNumber);
+                break;
+            case "12":
+                assignmentNumber = 1;
+                this.doWritingAssignment(assignmentNumber);
+                break;
+            case "21":
+                assignmentNumber = 2;
+                this.doWritingAssignment(assignmentNumber);
+                break;
+            case "22":
+                assignmentNumber = 3;
+                this.doWritingAssignment(assignmentNumber);
+                break;
+            case "31":
+                assignmentNumber = 4;
+                this.doWritingAssignment(assignmentNumber);
+                break;
+            case "32":
+                assignmentNumber = 5;
+                this.doWritingAssignment(assignmentNumber);
                 break;
             case "13":
                 this.doFridayMath();
@@ -39,9 +61,9 @@ public class GameMenuView extends View{
         return false;
     }
     
-    private void doFridayMorning() {
-        View11 view11 = new View11();
-        view11.display();
+    private void doWritingAssignment(int assignmentNumber) {
+        ViewWriting viewWriting = new ViewWriting(assignmentNumber);
+        viewWriting.display();
     }
     
     private void doFridayMath() {

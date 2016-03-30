@@ -9,11 +9,12 @@ import java.util.logging.Logger;
  *
  * @author Yura
  */
-public class View11 extends View{
+public class ViewWriting extends View{
 
     private CompareWordsControl words = new CompareWordsControl();
+    private int assignmentNumber = -1;
     
-    public View11() {
+    public ViewWriting(int assignmentNumber) {
 
         super();
         this.console.println("\n"
@@ -27,6 +28,7 @@ public class View11 extends View{
                 + "\nThe program will keep prompting you until you enter all 10 words correctly."
                 + "\n---------------------------------"
                 + "\nInput 'yes' if you want to continue: ");
+        this.assignmentNumber = assignmentNumber;
     }
 
     @Override
