@@ -15,6 +15,8 @@ public class Game implements Serializable{
     private ArrayList<Player> players;
     // array of answers for CalculationControl
     public int[] numbers = {12, 13, 14};
+    
+    public double[] weight = {1042, 556, 80};
 
     public ArrayList<Player> getPlayers() {
         return players;
@@ -22,6 +24,10 @@ public class Game implements Serializable{
 
     public int[] getNumbers() {
         return numbers;
+    }
+    
+    public double[] getWeight(){
+        return weight;
     }
 
     public String[][] getWords() {

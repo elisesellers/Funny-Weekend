@@ -13,6 +13,7 @@ public class GameMenuView extends View{
                 + "\n------------------------------------"
                 + "\n11 -- Friday Morning"
                 + "\n13 -- Friday Math"
+                + "\n23 -- Saturday Math"
                 + "\n33 -- Sunday Math"
                 + "\nQ -- Quit the game"
                 + "\n------------------------------------");
@@ -28,6 +29,9 @@ public class GameMenuView extends View{
                 break;
             case "13":
                 this.doFridayMath();
+                break;
+            case "23":
+                this.doSaturdayMath();
                 break;
             case "33":
                 this.doSundayMath();
@@ -52,6 +56,11 @@ public class GameMenuView extends View{
 
     private void doSundayMath() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void doSaturdayMath() {
+        View23 view23 = new View23();
+        view23.display();
     }
     
 }
