@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,6 +25,7 @@ public class FunnyWeekend {
     /**
      * @param args the command line arguments
      */
+    private static ArrayList<Player> players;
     
     private static Game currentGame = null;
     private static Player player = null;
@@ -72,6 +74,16 @@ public class FunnyWeekend {
     public static void setPlayer(Player player) {
         FunnyWeekend.player = player;
     }
+
+    public static ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public static void setPlayers(ArrayList<Player> players) {
+        FunnyWeekend.players = players;
+    }
+    
+    
 
     public static void main(String[] args) {
        

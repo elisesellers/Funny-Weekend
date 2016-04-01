@@ -54,9 +54,9 @@ public class StartProgramView extends View {
             return false;
         }
 
-        //display next vie
+        //display next view
         this.displayNextView(player);
-
+        
         return true;
     }
 

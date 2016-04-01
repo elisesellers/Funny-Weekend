@@ -8,6 +8,7 @@ package byui.CIT260.funnyWeekend.view;
 import byui.CIT260.funnyWeekend.control.CalculationControl;
 import static byui.CIT260.funnyWeekend.control.CalculationControl.calculateAverage;
 import byui.CIT260.funnyWeekend.exceptions.CalculationControlException;
+import funnyweekend.FunnyWeekend;
 
 
 /**
@@ -50,10 +51,10 @@ public class View23 extends View{
             }
             playerTotal= Integer.parseInt(getInput());
             // get the correct average and compare with the user input
-            double answer = 0;
+            double total;
             try{
-                answer = total.calculateTotal;
-                if (answer == playerTotal){
+                total = CalculationControl.calculateTotal(FunnyWeekend.getCurrentGame().getWeight(), playerTotal);
+                if (total == playerTotal){
                 this.console.println("\nThis is the right average!");
                 }
                 else{

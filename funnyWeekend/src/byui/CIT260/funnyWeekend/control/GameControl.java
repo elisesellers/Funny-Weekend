@@ -33,8 +33,15 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) {
-        System.out.println("*** createNewGame stub function called ***");
+    public static void createNewGame(Player player) throws GameControlException {
+        if (player == null){
+            throw new GameControlException("Invalid player.");
+        }
+        
+        Game currentGame = new Game(player);
+        
+        FunnyWeekend.setCurrentGame(currentGame);
+        
     } 
     
     public static void saveGame(Game game, String filepath) throws GameControlException{
