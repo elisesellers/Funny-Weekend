@@ -12,20 +12,19 @@ public class CompareWordsControl {
     private Game game = new Game();
     /**This compares the passed word with the game word and returns true 
        if the words are same and false if they are not*/
-    public boolean compareWords(String playerWord) throws CompareWordsControlException{
+    public boolean compareWords(String playerWord, int assignmentNumber) throws CompareWordsControlException{
         
         if ("".equals(playerWord))
             throw new CompareWordsControlException("You need to input the word");
         match = false;
         String[][] words = game.getWords();
         
-        for (int i = 0; i < 1; i++)
-            for (int j = 0; j < 10; j++){
-                if (words[i][j].equals(playerWord)){
-                    match = true;
-                    break;
-                }
+        for (int j = 0; j < 10; j++){
+            if (words[assignmentNumber][j].equals(playerWord)){
+                match = true;
+                break;
             }
+        }
         return match;
     }
     

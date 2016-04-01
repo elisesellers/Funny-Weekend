@@ -31,10 +31,10 @@ public class Game implements Serializable{
     private String[][] words = {
         {"teacher", "book", "pen", "classmate", "desk", "lesson", "grade", "gym", "math", "break"},
         {"friend", "runners", "scarf", "hat", "trees", "gloves", "boots", "coat", "hill", "snow"},
-        {"bear", "moose", "bird", "buffalo", "rabbit", "mountain lion", "fly", "mouse", "snake", "squirrel"},
+        {"black bear", "moose", "elk", "buffalo", "deer", "mountain lion", "wolf", "grizzly", "goat", "boar"},
         {"bed", "lamp", "toy", "window", "picture", "drawers", "desk", "clothes", "blanket", "pillow"},
         {"speaker", "chapel", "sacrament", "bishop", "Jesus", "story", "scriptures", "prayer", "song", "teacher"},
-        {"bowl", "napkin", "spoon", "vegetables", "meat", "drink", "fork", "plate", "family", "potatoes"},
+        {"bowl", "napkin", "spoon", "vegetables", "meat", "drink", "fork", "plate", "fruit", "potatoes"},
         };
 
     @Override
