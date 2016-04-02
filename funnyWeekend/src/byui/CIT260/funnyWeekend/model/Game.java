@@ -12,16 +12,37 @@ public class Game implements Serializable{
     private double totalScore;
     
     // list of players 
-    private ArrayList<Player> players;
+    
     // array of answers for CalculationControl
-    private int[] numbers = {12, 13, 14};
+    public int[] numbers = {12, 13, 14};
+    
+    public double[] weight = {1042, 556, 80};
 
-    public ArrayList<Player> getPlayers() {
-        return players;
+    private Player player;
+
+    public double getTotalScore() {
+        return totalScore;
     }
 
+    public void setTotalScore(double totalScore) {
+        this.totalScore = totalScore;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
+    
     public int[] getNumbers() {
         return numbers;
+    }
+    
+    public double[] getWeight(){
+        return weight;
     }
 
     public String[][] getWords() {
@@ -69,6 +90,12 @@ public class Game implements Serializable{
     
     public Game() {
     }
+
+    public Game(Player player) {
+        this.player = player;
+    }
+    
+    
     
     
 }

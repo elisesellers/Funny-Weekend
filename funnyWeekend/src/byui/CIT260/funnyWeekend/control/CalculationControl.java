@@ -49,16 +49,16 @@ public class CalculationControl {
     } 
     
     public static double calculateTotal
-        (double list [], int length) throws CalculationControlException{
+        (double weight [], int length) throws CalculationControlException{
         if (length<=0)
             throw new CalculationControlException("You must enter numbers.");
         for (int i=0; i<length; i++)
-            if (list[i]<0)
+            if (weight[i]<0)
                 throw new CalculationControlException("The numbers cannot be less than 0.");
         
         double total = 0;
         for (int i=0; i<length; i++)
-            total+=list[i];
+            total+=weight[i];
         
         return total;
     } 

@@ -3,6 +3,10 @@ package byui.CIT260.funnyWeekend.view;
 import byui.CIT260.funnyWeekend.control.GameControl;
 import byui.CIT260.funnyWeekend.model.Game;
 import funnyweekend.FunnyWeekend;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -27,7 +31,6 @@ public class MainMenuView extends View{
                 + "\nH -- Get help on how to play the game"
                 + "\nS -- Save the game"
                 + "\nQ -- Quit the game"
-                + "\nWA -- Save and print out word answers"
                 + "\n------------------------------------");
         
     }
@@ -50,9 +53,6 @@ public class MainMenuView extends View{
             case "S":  // save the current game
                 this.saveGame();
                 break;
-            case "WA": // write the words answers to a file
-                this.writeWordAnswers();
-                break;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try agin");
                 break;
@@ -61,9 +61,13 @@ public class MainMenuView extends View{
     }
 
     private void startNewGame() {
-        // create a new game
-        GameControl.createNewGame(FunnyWeekend.getPlayer());
-        
+               
+        try{
+            // create a new game
+            GameControl.createNewGame(FunnyWeekend.getPlayer());
+        }catch (Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
         // display game menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();

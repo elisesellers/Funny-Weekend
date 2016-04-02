@@ -3,7 +3,7 @@ package byui.CIT260.funnyWeekend.view;
 import byui.CIT260.funnyWeekend.control.CalculationControl;
 import static byui.CIT260.funnyWeekend.control.CalculationControl.calculateAverage;
 import byui.CIT260.funnyWeekend.exceptions.CalculationControlException;
-import java.util.Scanner;
+
 
 /**
  *
