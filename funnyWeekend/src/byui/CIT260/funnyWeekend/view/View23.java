@@ -23,16 +23,16 @@ public class View23 extends View{
     
     public View23(){
     this.view23 = "\n"
-            + "------------------------------------------------"
-            + "Saturday Math"
-            + "------------------------------------------------"
-            + "You just got home from Bear World."
-            + "You saw three bears. The biggest bear weighed 1,042 pounds."
-            + "The second bear weighed 556 pounds. The last bear was just a cub"
-            + "and weighed 80 pounds. What is the weight of all of the bears"
-            + "put together?"
-            + "------------------------------------------------"
-            + "Please enter the total weight of all of the bears:";
+            + "\n------------------------------------------------"
+            + "\nSaturday Math"
+            + "\n------------------------------------------------"
+            + "\nYou just got home from Bear World."
+            + "\nYou saw three bears. The biggest bear weighed 1,042 pounds."
+            + "\nThe second bear weighed 556 pounds. The last bear was just a cub"
+            + "\nand weighed 80 pounds. What is the weight of all of the bears"
+            + "\nput together?"
+            + "\n------------------------------------------------"
+            + "\nPlease enter the total weight of all of the bears:";
     }
 
     @Override
@@ -51,11 +51,11 @@ public class View23 extends View{
             }
             playerTotal= Integer.parseInt(getInput());
             // get the correct average and compare with the user input
-            double total;
+            int total;
             try{
                 total = CalculationControl.calculateTotal(FunnyWeekend.getCurrentGame().getWeight(), playerTotal);
                 if (total == playerTotal){
-                this.console.println("\nThis is the right average!");
+                this.console.println("\nThis is the right total!");
                 }
                 else{
                     this.console.println("\nThis is not the right total!");

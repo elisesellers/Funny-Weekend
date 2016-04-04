@@ -16,7 +16,7 @@ public class Game implements Serializable{
     // array of answers for CalculationControl
     public int[] numbers = {12, 13, 14};
     
-    public double[] weight = {1042, 556, 80};
+    public int[] weight = {1042, 556, 80};
 
     private Player player;
 
@@ -41,7 +41,7 @@ public class Game implements Serializable{
         return numbers;
     }
     
-    public double[] getWeight(){
+    public int[] getWeight(){
         return weight;
     }
 

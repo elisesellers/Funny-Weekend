@@ -73,7 +73,8 @@ public class GameMenuView extends View{
 
     private void doSaturdayMath() {
         View23 view23 = new View23();
-        view23.display();
+        String playerTotal = this.getInput();
+        view23.doAction(playerTotal);
     }
     private void writeWordAnswers() {
         // prompt for and get the name of the file to write the word answers
