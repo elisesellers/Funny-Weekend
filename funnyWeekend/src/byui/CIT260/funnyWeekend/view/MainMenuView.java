@@ -109,5 +109,29 @@ public class MainMenuView extends View{
         }
     }    
 
-    
+    private void writeWordAnswers() {
+        // prompt for and get the name of the file to write the word answers
+        this.console.println("\n\nEnter the file path for the file where the word answers will be written.");
+        String filePath = this.getInput();
+        
+        try(PrintWriter out = new PrintWriter(filePath)){
+            // print the header
+            out.println("\n            -- Here are the word answers --             \n");
+            /* for ever item in the listYu
+                 print info about item;
+            */
+            System.out.println("FunnyWeekend.getCurrentGame() = " + FunnyWeekend.getCurrentGame());
+            String [][] wordAnswers = FunnyWeekend.getCurrentGame().getWords();
+            for (int i = 0; i < 6; i++){
+                out.println("Writing assignment #," + (i + 1) + ":  ");
+                for (int i1 = 0; i1 < 10; i1++){
+                    out.println(wordAnswers[i][i1] + ", ");
+                }
+                out.println("\n");
+            }
+            
+        }catch(IOException ex){
+            System.out.println("I/O error" + ex.getMessage());
+        }
+    }
 }

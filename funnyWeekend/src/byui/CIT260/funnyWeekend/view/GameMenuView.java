@@ -17,6 +17,11 @@ public class GameMenuView extends View{
                 + "\n   Locations Menu"
                 + "\n------------------------------------"
                 + "\n11 -- Friday Morning"
+                + "\n12 -- Friday Afternoon"
+                + "\n21 -- Saturday Morning"
+                + "\n22 -- Saturday Afternoon"
+                + "\n31 -- Sunday Morning"
+                + "\n32 -- Sunday Afternoon"
                 + "\n13 -- Friday Math"
                 + "\n23 -- Saturday Math"
                 + "\n33 -- Sunday Math"
@@ -28,11 +33,33 @@ public class GameMenuView extends View{
 
     @Override
     public boolean doAction(String value) {
+        int assignmentNumber = -1;
         value = value.toUpperCase(); 
         
         switch (value) {
             case "11":
-                this.doFridayMorning();
+                assignmentNumber = 0;
+                this.doWritingAssignment(assignmentNumber);
+                break;
+            case "12":
+                assignmentNumber = 1;
+                this.doWritingAssignment(assignmentNumber);
+                break;
+            case "21":
+                assignmentNumber = 2;
+                this.doWritingAssignment(assignmentNumber);
+                break;
+            case "22":
+                assignmentNumber = 3;
+                this.doWritingAssignment(assignmentNumber);
+                break;
+            case "31":
+                assignmentNumber = 4;
+                this.doWritingAssignment(assignmentNumber);
+                break;
+            case "32":
+                assignmentNumber = 5;
+                this.doWritingAssignment(assignmentNumber);
                 break;
             case "13":
                 this.doFridayMath();
@@ -56,9 +83,9 @@ public class GameMenuView extends View{
         return false;
     }
     
-    private void doFridayMorning() {
-        View11 view11 = new View11();
-        view11.display();
+    private void doWritingAssignment(int assignmentNumber) {
+        ViewWriting viewWriting = new ViewWriting(assignmentNumber);
+        viewWriting.display();
     }
     
     private void doFridayMath() {
