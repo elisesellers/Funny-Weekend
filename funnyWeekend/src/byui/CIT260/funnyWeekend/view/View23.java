@@ -22,7 +22,7 @@ public class View23 extends View{
     
     
     public View23(){
-    this.view23 = "\n"
+    super("\n"
             + "\n------------------------------------------------"
             + "\nSaturday Math"
             + "\n------------------------------------------------"
@@ -32,28 +32,28 @@ public class View23 extends View{
             + "\nand weighed 80 pounds. What is the weight of all of the bears"
             + "\nput together?"
             + "\n------------------------------------------------"
-            + "\nPlease enter the total weight of all of the bears:";
+            + "\nPlease enter the total weight of all of the bears:");
     }
 
     @Override
     public boolean doAction(String playerPass) {
     this.console.println(view23);
-        int playerTotal;
+        double playerTotal;
 
         // keep comparing until getting the right answer
 
         boolean rightAnswer = true;
         do{
             try{
-                Integer.parseInt(getInput());
+                Double.parseDouble(getInput());
             }catch(NumberFormatException nf){
                 ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number.");
             }
-            playerTotal= Integer.parseInt(getInput());
+            playerTotal= Double.parseDouble(getInput());
             // get the correct average and compare with the user input
-            int total;
+            double total;
             try{
-                total = CalculationControl.calculateTotal(FunnyWeekend.getCurrentGame().getWeight(), playerTotal);
+                total = CalculationControl.calculateTotal(FunnyWeekend.getCurrentGame().getWeight());
                 if (total == playerTotal){
                 this.console.println("\nThis is the right total!");
                 }

@@ -16,7 +16,7 @@ public class View33 extends View{
     
     // constructor
     public View33(){ 
-            this.view33 = "\n"
+            super("\n"
                 + "\n------------------------------------"
                 + "\n   Sunday Math"
                 + "\n------------------------------------"
@@ -24,7 +24,7 @@ public class View33 extends View{
                 + "\nShe wants to tell them the Rexburrg temperature, but she needs it in Celsius."
                 + "\nIt was 28 degrees of Fahrenheit in Rexburg this morning."
                 + "\nThe grandmar wants you to convert the temperature into Celsius."
-                + "\n------------------------------------";
+                + "\n------------------------------------");
     }
      
     @Override

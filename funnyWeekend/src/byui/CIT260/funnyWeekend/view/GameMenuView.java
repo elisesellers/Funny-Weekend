@@ -95,7 +95,9 @@ public class GameMenuView extends View{
     }
 
     private void doSundayMath() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        View33 view33 = new View33();
+        String playerTemp = this.getInput();
+        view33.doAction(playerTemp);
     }
 
     private void doSaturdayMath() {

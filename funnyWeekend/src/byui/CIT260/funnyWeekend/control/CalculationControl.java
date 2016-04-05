@@ -48,8 +48,8 @@ public class CalculationControl {
         return average;
     } 
     
-    public static int calculateTotal
-        (int weight []) throws CalculationControlException{
+    public static double calculateTotal
+        (double weight []) throws CalculationControlException{
         
         for (int i=0; i<weight.length; i++)
             if (weight[i]<0)
