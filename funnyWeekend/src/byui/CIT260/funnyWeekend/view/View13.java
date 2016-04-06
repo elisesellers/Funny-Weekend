@@ -41,11 +41,12 @@ public class View13 extends View{
         boolean rightAnswer = true;
         do{
             try{
-                Integer.parseInt(getInput());
+                playerAverage = Integer.parseInt(playerPass);
             }catch(NumberFormatException nf){
                 ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number.");
+                return false;
             }
-            playerAverage= Integer.parseInt(getInput());
+            
             // get the correct average and compare with the user input
             int avg;
             try{

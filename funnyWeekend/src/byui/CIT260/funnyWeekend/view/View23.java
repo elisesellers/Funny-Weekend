@@ -45,11 +45,11 @@ public class View23 extends View{
         boolean rightAnswer = true;
         do{
             try{
-                Double.parseDouble(getInput());
+                playerTotal=Double.parseDouble(playerPass);
             }catch(NumberFormatException nf){
                 ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number.");
+                return false;
             }
-            playerTotal= Double.parseDouble(getInput());
             // get the correct average and compare with the user input
             double total;
             try{
@@ -64,6 +64,7 @@ public class View23 extends View{
                         + "a+a+a+a");
                     this.console.println("\nTry again and please: ");
                     rightAnswer = false;
+                    
                 }
             }catch(CalculationControlException cce){
                 ErrorView.display(this.getClass().getName(), cce.getMessage());

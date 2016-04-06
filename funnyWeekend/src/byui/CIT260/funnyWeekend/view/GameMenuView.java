@@ -90,20 +90,17 @@ public class GameMenuView extends View{
     
     private void doFridayMath() {
         View13 view13 = new View13();
-        String playerAverage = this.getInput();
-        view13.doAction(playerAverage);
+        view13.display();
     }
 
     private void doSundayMath() {
         View33 view33 = new View33();
-        String playerTemp = this.getInput();
-        view33.doAction(playerTemp);
+        view33.display();
     }
 
     private void doSaturdayMath() {
         View23 view23 = new View23();
-        String playerTotal = this.getInput();
-        view23.doAction(playerTotal);
+        view23.display();
     }
     private void writeWordAnswers() {
         // prompt for and get the name of the file to write the word answers
