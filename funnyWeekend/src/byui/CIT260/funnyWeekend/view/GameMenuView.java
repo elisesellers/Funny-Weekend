@@ -90,12 +90,12 @@ public class GameMenuView extends View{
     
     private void doFridayMath() {
         View13 view13 = new View13();
-        String playerAverage = this.getInput();
-        view13.doAction(playerAverage);
+        view13.display();
     }
 
     private void doSundayMath() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        View33 view33 = new View33();
+        view33.display();
     }
 
     private void doSaturdayMath() {

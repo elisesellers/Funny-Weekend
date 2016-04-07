@@ -3,6 +3,7 @@ package byui.CIT260.funnyWeekend.view;
 import byui.CIT260.funnyWeekend.control.CalculationControl;
 import static byui.CIT260.funnyWeekend.control.CalculationControl.calculateAverage;
 import byui.CIT260.funnyWeekend.exceptions.CalculationControlException;
+import funnyweekend.FunnyWeekend;
 
 
 /**
@@ -15,7 +16,7 @@ public class View13 extends View{
     private CalculationControl average = new CalculationControl();
     //constructor
     public View13(){
-        this.view13 = "\n"
+        super("\n"
                 + "\n---------------------------------"
                 + "\n Friday Math "
                 + "\n---------------------------------"
@@ -25,7 +26,7 @@ public class View13 extends View{
                 + "\n88, 93, 95, 98, 83, 98, and 95."
                 + "\nCalculate the average of the scores received."
                 + "\n---------------------------------"
-                + "\nPlease enter the average score:";
+                + "\nPlease enter the average score:");
     }
 
     // displays the start progrm view
@@ -40,11 +41,12 @@ public class View13 extends View{
         boolean rightAnswer = true;
         do{
             try{
-                Integer.parseInt(getInput());
+                playerAverage = Integer.parseInt(playerPass);
             }catch(NumberFormatException nf){
                 ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number.");
+                return false;
             }
-            playerAverage= Integer.parseInt(getInput());
+            
             // get the correct average and compare with the user input
             int avg;
             try{

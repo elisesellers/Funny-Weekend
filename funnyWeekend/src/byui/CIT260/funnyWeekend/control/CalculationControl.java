@@ -49,15 +49,14 @@ public class CalculationControl {
     } 
     
     public static double calculateTotal
-        (double weight [], int length) throws CalculationControlException{
-        if (length<=0)
-            throw new CalculationControlException("You must enter numbers.");
-        for (int i=0; i<length; i++)
+        (double weight []) throws CalculationControlException{
+        
+        for (int i=0; i<weight.length; i++)
             if (weight[i]<0)
                 throw new CalculationControlException("The numbers cannot be less than 0.");
         
-        double total = 0;
-        for (int i=0; i<length; i++)
+        int total = 0;
+        for (int i=0; i<weight.length; i++)
             total+=weight[i];
         
         return total;

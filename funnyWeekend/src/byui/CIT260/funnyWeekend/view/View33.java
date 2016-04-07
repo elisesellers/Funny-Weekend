@@ -16,26 +16,27 @@ public class View33 extends View{
     
     // constructor
     public View33(){ 
-            this.view33 = "\n"
+            super("\n"
                 + "\n------------------------------------"
                 + "\n   Sunday Math"
                 + "\n------------------------------------"
-                + "\nYour grandmar will call her friends in Rome today."
+                + "\nYour grandma will call her friends in Rome today."
                 + "\nShe wants to tell them the Rexburrg temperature, but she needs it in Celsius."
-                + "\nIt was 28 degrees of Fahrenheit in Rexburg this morning."
-                + "\nThe grandmar wants you to convert the temperature into Celsius."
-                + "\n------------------------------------";
+                + "\nIt was 28 degrees Fahrenheit in Rexburg this morning."
+                + "\nYour grandma wants you to convert the temperature into Celsius."
+                + "\n------------------------------------");
     }
      
     @Override
     public boolean doAction(String playerPass) {
         int playerT;
         try{
-            Integer.parseInt(playerPass);
+            playerT = Integer.parseInt(playerPass);
         }catch (NumberFormatException nf){
             ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number.");
+            return false;
         }
-        playerT=Integer.parseInt(playerPass);
+        
         // keep comparing until getting the right answer
         boolean rightAnswer = false;
         // get the correct converted temperature and compare with the user input
